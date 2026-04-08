@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  
+  --color-noir-black: #0A0A0A;
+  --color-noir-charcoal: #121212;
+  --color-noir-brown: #1C1917;
+  --color-noir-beige: #F5F5F4;
+  --color-noir-gold: #C5A059;
+  --color-noir-gold-muted: #8B7355;
+}
+
+@layer base {
+  body {
+    @apply bg-noir-black text-noir-beige font-sans selection:bg-noir-gold selection:text-noir-black;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+.luxury-underline {
+  @apply relative inline-block;
+}
+
+.luxury-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-[1px] bg-noir-gold transition-all duration-700 ease-in-out;
+}
+
+.luxury-underline:hover::after {
+  @apply w-full;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-noir-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-noir-brown rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-noir-gold-muted;
+}
